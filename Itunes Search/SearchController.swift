@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -19,14 +20,29 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         trackTableView.delegate = self
         trackTableView.dataSource = self
         trackTableView.register(UINib(nibName: "SearchCell", bundle: nil), forCellReuseIdentifier: "SearchCell")
-        
+        loadSearchAPILink()
+    }
+    
+    func loadSearchAPILink() {
         Network.request(URLString: GlobalVariable.searchAPILink) { success, response in
             let trackArray  = (response as! NSDictionary)["results"] as! [[String:Any]]
             self.results.removeAll()
-            for track in trackArray {
-                let thisResult = result(trackName: track["trackName"] as? String, artworkUrl30: track["artworkUrl30"] as? String, trackPrice: track["trackPrice"] as? Double)
-                self.results.append(thisResult)
-            }
+            let realm = try! Realm()
+            do {
+                try! realm.write {
+                    for track in trackArray {
+                        let thisResult = result(trackName: track["trackName"] as? String, artworkUrl30: track["artworkUrl30"] as? String, trackPrice: track["trackPrice"] as? Double)
+                        self.results.append(thisResult)
+                        let thisTrack = TrackModel()
+                        thisTrack.artworkUrl30 = thisResult.artworkUrl30 ?? ""
+                        thisTrack.trackName = thisResult.trackName ?? ""
+                        thisTrack.trackPrice = thisResult.trackPrice ?? 0.00
+                        thisTrack.id = GlobalVariable.incrementTrackPrimaryKey()
+                        realm.create(TrackModel.self, value: thisTrack, update: .all)
+                    }
+                }
+            } catch {}
+            print(realm.configuration.fileURL ?? "")
             
             DispatchQueue.main.async {
                 self.trackTableView.reloadData()

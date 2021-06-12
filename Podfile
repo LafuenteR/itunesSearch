@@ -8,5 +8,6 @@ target 'Itunes Search' do
   # Pods for Itunes Search
   pod 'Alamofire', '~> 5.4'
   pod 'Kingfisher', '~> 6.0'
+  pod 'RealmSwift'
 
 end
