@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B05385C4C3B1C48A261FBE97 /* Pods_Itunes_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8BBB0035FC453C68510FB1 /* Pods_Itunes_Search.framework */; };
 		BCC8133A26748925007106EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8133926748925007106EB /* AppDelegate.swift */; };
 		BCC8133C26748925007106EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8133B26748925007106EB /* SceneDelegate.swift */; };
 		BCC8133E26748925007106EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8133D26748925007106EB /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D8BBB0035FC453C68510FB1 /* Pods_Itunes_Search.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itunes_Search.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DAB847A870146053FDEFAB5 /* Pods-Itunes Search.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itunes Search.debug.xcconfig"; path = "Target Support Files/Pods-Itunes Search/Pods-Itunes Search.debug.xcconfig"; sourceTree = "<group>"; };
 		BCC8133626748925007106EB /* Itunes Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Itunes Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC8133926748925007106EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC8133B26748925007106EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		BCC8134226748926007106EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCC8134526748926007106EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC8134726748926007106EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2F3A144170604D7441C5EBF /* Pods-Itunes Search.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itunes Search.release.xcconfig"; path = "Target Support Files/Pods-Itunes Search/Pods-Itunes Search.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B05385C4C3B1C48A261FBE97 /* Pods_Itunes_Search.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DACFDA1A7E6F486CB8259E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6DAB847A870146053FDEFAB5 /* Pods-Itunes Search.debug.xcconfig */,
+				F2F3A144170604D7441C5EBF /* Pods-Itunes Search.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AA0C3D7BB12AED19569A6F83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D8BBB0035FC453C68510FB1 /* Pods_Itunes_Search.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BCC8132D26748925007106EB = {
 			isa = PBXGroup;
 			children = (
 				BCC8133826748925007106EB /* Itunes Search */,
 				BCC8133726748925007106EB /* Products */,
+				7DACFDA1A7E6F486CB8259E7 /* Pods */,
+				AA0C3D7BB12AED19569A6F83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCC8134A26748926007106EB /* Build configuration list for PBXNativeTarget "Itunes Search" */;
 			buildPhases = (
+				4AEF068575907C02D3E07B12 /* [CP] Check Pods Manifest.lock */,
 				BCC8133226748925007106EB /* Sources */,
 				BCC8133326748925007106EB /* Frameworks */,
 				BCC8133426748925007106EB /* Resources */,
+				8D51C848AA7289C83765C79D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4AEF068575907C02D3E07B12 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Itunes Search-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D51C848AA7289C83765C79D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Itunes Search/Pods-Itunes Search-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Itunes Search/Pods-Itunes Search-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Itunes Search/Pods-Itunes Search-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BCC8133226748925007106EB /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		BCC8134B26748926007106EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DAB847A870146053FDEFAB5 /* Pods-Itunes Search.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		BCC8134C26748926007106EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2F3A144170604D7441C5EBF /* Pods-Itunes Search.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
