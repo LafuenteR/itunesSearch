@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchCell: UITableViewCell {
 
@@ -22,6 +23,14 @@ class SearchCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func update(track: result) {
+        trackNameLabel.text = track.trackName ?? "Track"
+        priceLabel.text = "$ \(track.trackPrice ?? 0.00)"
+        let url = URL(string: track.artworkUrl30 ?? "")
+        artworkUrl30.contentMode = .scaleAspectFill
+        artworkUrl30.kf.setImage(with: url)
     }
     
 }

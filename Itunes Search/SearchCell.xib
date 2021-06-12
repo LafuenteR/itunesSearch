@@ -17,33 +17,33 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j4W-tj-Dbs">
-                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                        <rect key="frame" x="10" y="2.5" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="Zd2-ey-jPl"/>
-                            <constraint firstAttribute="width" constant="30" id="q4K-ov-9aR"/>
+                            <constraint firstAttribute="height" constant="30" id="BEd-ZE-NJP"/>
+                            <constraint firstAttribute="width" constant="30" id="ioX-bD-M2E"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP6-dx-EWE">
-                        <rect key="frame" x="50" y="0.0" width="82" height="18"/>
+                        <rect key="frame" x="50" y="2.5" width="82" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HiL-cx-1TO">
-                        <rect key="frame" x="50" y="18" width="29" height="15"/>
+                        <rect key="frame" x="50" y="20.5" width="29" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="j4W-tj-Dbs" secondAttribute="bottom" id="2xS-NT-JGj"/>
-                    <constraint firstItem="j4W-tj-Dbs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7wZ-ZN-rDS"/>
-                    <constraint firstItem="fP6-dx-EWE" firstAttribute="leading" secondItem="j4W-tj-Dbs" secondAttribute="trailing" constant="20" id="8b6-8e-AQN"/>
-                    <constraint firstItem="HiL-cx-1TO" firstAttribute="leading" secondItem="j4W-tj-Dbs" secondAttribute="trailing" constant="20" id="NIF-Ar-cSL"/>
-                    <constraint firstAttribute="bottom" secondItem="j4W-tj-Dbs" secondAttribute="bottom" constant="5" id="T4B-CE-8RK"/>
-                    <constraint firstItem="j4W-tj-Dbs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZvM-fb-GqE"/>
-                    <constraint firstItem="fP6-dx-EWE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="he5-mL-GM6"/>
+                    <constraint firstItem="HiL-cx-1TO" firstAttribute="leading" secondItem="j4W-tj-Dbs" secondAttribute="trailing" constant="10" id="B4W-bm-nfy"/>
+                    <constraint firstItem="j4W-tj-Dbs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2.5" id="DiD-M1-u5J"/>
+                    <constraint firstItem="fP6-dx-EWE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2.5" id="PmK-x3-cx5"/>
+                    <constraint firstAttribute="bottom" secondItem="j4W-tj-Dbs" secondAttribute="bottom" constant="2.5" id="XoC-me-z53"/>
+                    <constraint firstItem="j4W-tj-Dbs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="g8G-rc-XuW"/>
+                    <constraint firstItem="fP6-dx-EWE" firstAttribute="leading" secondItem="j4W-tj-Dbs" secondAttribute="trailing" constant="10" id="ics-Ly-Az0"/>
+                    <constraint firstAttribute="bottom" secondItem="j4W-tj-Dbs" secondAttribute="bottom" constant="5" id="ocR-hQ-Ocx"/>
                     <constraint firstItem="HiL-cx-1TO" firstAttribute="top" secondItem="fP6-dx-EWE" secondAttribute="bottom" id="vKc-Wu-Fms"/>
                 </constraints>
             </tableViewCellContentView>

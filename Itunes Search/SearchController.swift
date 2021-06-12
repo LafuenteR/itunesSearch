@@ -10,7 +10,6 @@ import Alamofire
 
 class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-        
     @IBOutlet weak var trackTableView: UITableView!
     var results = [result]()
 
@@ -30,18 +29,11 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
             
             DispatchQueue.main.async {
-                self.results.append(result(trackName: "dsvd", artworkUrl30: "sdvf", trackPrice: 0.99))
                 self.trackTableView.reloadData()
             }
         } failed: { failed, response in
             print("failed",response as Any)
         }
-    }
-    
-    struct result: Codable {
-        var trackName: String?
-        var artworkUrl30: String?
-        var trackPrice: Double?
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,8 +42,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = trackTableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchCell
-        cell.trackNameLabel.text = results[indexPath.row].trackName
-        cell.priceLabel.text = "\(results[indexPath.row].trackPrice ?? 0.00)"
+        cell.update(track: results[indexPath.row])
         return cell
     }
     
@@ -59,4 +50,10 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         return 35
     }
 
+}
+
+struct result: Codable {
+    var trackName: String?
+    var artworkUrl30: String?
+    var trackPrice: Double?
 }
