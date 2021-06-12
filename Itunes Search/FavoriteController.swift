@@ -12,20 +12,17 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var favoriteTableView: UITableView!
     var favorites: Results<TrackModel>?
-    var results = [result]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
         favoriteTableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: "TrackCell")
-        // Do any additional setup after loading the view.
-//        let config = Realm.Configuration(objectTypes: [TrackModel.self])
-//        let realm = try! Realm(configuration: config)
-        
-        let hey = try! Realm().objects(TrackModel.self).filter("isFavorite == \(true)")
-        print("dbgbf",hey.count)
-        favorites = hey
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        favorites = try! Realm().objects(TrackModel.self).filter("isFavorite == \(true)")
+        self.favoriteTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
