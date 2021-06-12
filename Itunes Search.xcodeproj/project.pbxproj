@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,12 @@
 		BCC8134126748925007106EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC8133F26748925007106EB /* Main.storyboard */; };
 		BCC8134326748926007106EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC8134226748926007106EB /* Assets.xcassets */; };
 		BCC8134626748926007106EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC8134426748926007106EB /* LaunchScreen.storyboard */; };
+		BCC8134E2674926E007106EB /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8134D2674926E007106EB /* SearchController.swift */; };
+		BCC8135026749286007106EB /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8134F26749286007106EB /* FavoriteController.swift */; };
+		BCC81353267505CF007106EB /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC81351267505CF007106EB /* SearchCell.swift */; };
+		BCC81354267505CF007106EB /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC81352267505CF007106EB /* SearchCell.xib */; };
+		BCC8135626751076007106EB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8135526751076007106EB /* Network.swift */; };
+		BCC81358267510C7007106EB /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC81357267510C7007106EB /* GlobalVariable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,12 @@
 		BCC8134226748926007106EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCC8134526748926007106EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC8134726748926007106EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC8134D2674926E007106EB /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		BCC8134F26749286007106EB /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
+		BCC81351267505CF007106EB /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		BCC81352267505CF007106EB /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		BCC8135526751076007106EB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		BCC81357267510C7007106EB /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		F2F3A144170604D7441C5EBF /* Pods-Itunes Search.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itunes Search.release.xcconfig"; path = "Target Support Files/Pods-Itunes Search/Pods-Itunes Search.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,7 +60,6 @@
 				6DAB847A870146053FDEFAB5 /* Pods-Itunes Search.debug.xcconfig */,
 				F2F3A144170604D7441C5EBF /* Pods-Itunes Search.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,6 +96,12 @@
 				BCC8133B26748925007106EB /* SceneDelegate.swift */,
 				BCC8133D26748925007106EB /* ViewController.swift */,
 				BCC8133F26748925007106EB /* Main.storyboard */,
+				BCC8134D2674926E007106EB /* SearchController.swift */,
+				BCC8135526751076007106EB /* Network.swift */,
+				BCC81357267510C7007106EB /* GlobalVariable.swift */,
+				BCC81351267505CF007106EB /* SearchCell.swift */,
+				BCC81352267505CF007106EB /* SearchCell.xib */,
+				BCC8134F26749286007106EB /* FavoriteController.swift */,
 				BCC8134226748926007106EB /* Assets.xcassets */,
 				BCC8134426748926007106EB /* LaunchScreen.storyboard */,
 				BCC8134726748926007106EB /* Info.plist */,
@@ -152,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCC8134626748926007106EB /* LaunchScreen.storyboard in Resources */,
+				BCC81354267505CF007106EB /* SearchCell.xib in Resources */,
 				BCC8134326748926007106EB /* Assets.xcassets in Resources */,
 				BCC8134126748925007106EB /* Main.storyboard in Resources */,
 			);
@@ -206,9 +224,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC8135026749286007106EB /* FavoriteController.swift in Sources */,
+				BCC81353267505CF007106EB /* SearchCell.swift in Sources */,
 				BCC8133E26748925007106EB /* ViewController.swift in Sources */,
 				BCC8133A26748925007106EB /* AppDelegate.swift in Sources */,
 				BCC8133C26748925007106EB /* SceneDelegate.swift in Sources */,
+				BCC8135626751076007106EB /* Network.swift in Sources */,
+				BCC81358267510C7007106EB /* GlobalVariable.swift in Sources */,
+				BCC8134E2674926E007106EB /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
