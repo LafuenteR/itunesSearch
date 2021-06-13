@@ -49,12 +49,15 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             } catch {}
             print(self.realm.configuration.fileURL ?? "")
             
-            DispatchQueue.main.async {
-                self.tracks = try! Realm().objects(TrackModel.self)
-                self.trackTableView.reloadData()
-            }
         } failed: { failed, response in
             print("failed",response as Any)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.tracks = try! Realm().objects(TrackModel.self)
+            self.trackTableView.reloadData()
         }
     }
     

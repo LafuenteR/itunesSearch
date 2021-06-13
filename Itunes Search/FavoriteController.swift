@@ -32,7 +32,12 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favoriteTableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
         cell.update(track: favorites![indexPath.row])
+        cell.faveButtonUI.addTarget(self, action: #selector(reloadFavorites), for: .touchUpInside)
         return cell
+    }
+    
+    @objc func reloadFavorites() {
+        self.favoriteTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
