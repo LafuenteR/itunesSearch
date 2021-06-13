@@ -158,7 +158,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         DispatchQueue.main.async {
             if searchText.count > 0 {
-                let query = NSPredicate(format:"trackName CONTAINS %@", searchText)
+                let query = NSPredicate(format:"trackName CONTAINS[C] %@", searchText)
                 self.tracks = try! Realm().objects(TrackModel.self).filter(query)
                 self.trackTableView.reloadData()
             } else {
