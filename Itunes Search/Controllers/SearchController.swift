@@ -73,6 +73,11 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
                             }
                         }
                     }
+                    DispatchQueue.main.async {
+                        self.visits = try! Realm().objects(VisitModel.self)
+                        self.tracks = try! Realm().objects(TrackModel.self)
+                        self.trackTableView.reloadData()
+                    }
                 } catch {}
                 print(self.realm.configuration.fileURL ?? "")
             }
