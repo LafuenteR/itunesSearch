@@ -14,6 +14,7 @@ struct GlobalVariable {
     
     static var search = "Search"
     static var favorite = "Favorite"
+    static var home = "Home"
     
     static func incrementTrackPrimaryKey() -> Int {
         let realm = try! Realm()
@@ -29,6 +30,17 @@ struct GlobalVariable {
     static func incrementVisitPrimaryKey() -> Int {
         let realm = try! Realm()
         let visits = realm.objects(VisitModel.self)
+        if visits.count > 0 {
+            let lastID = visits.last?.id
+            return lastID! + 1
+        } else {
+            return 0
+        }
+    }
+    
+    static func incrementVisitPagePrimaryKey() -> Int {
+        let realm = try! Realm()
+        let visits = realm.objects(LastVisitPageModel.self)
         if visits.count > 0 {
             let lastID = visits.last?.id
             return lastID! + 1

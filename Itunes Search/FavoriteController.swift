@@ -12,18 +12,47 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var favoriteTableView: UITableView!
     var favorites: Results<TrackModel>?
+    let realm = try! Realm()
+    var lastVisitPage: Results<LastVisitPageModel>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = GlobalVariable.favorite
+        checkLastVisitPage()
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
         favoriteTableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: "TrackCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        lastVisitPage(tabName: GlobalVariable.favorite, pageName: GlobalVariable.home)
         favorites = try! Realm().objects(TrackModel.self).filter("isFavorite == \(true)")
         self.favoriteTableView.reloadData()
+    }
+    
+    func checkLastVisitPage() {
+        lastVisitPage = try! Realm().objects(LastVisitPageModel.self)
+        if lastVisitPage?.count ?? 0 > 1 {
+            let thisPage = lastVisitPage![lastVisitPage!.count - 1]
+            if thisPage.tabName == GlobalVariable.favorite && thisPage.pageName != GlobalVariable.home {
+                let id = (thisPage.pageName as NSString).integerValue
+                let thisTrack = try! Realm().objects(TrackModel.self).filter("id == \(id)")
+                let detailController = DetailController()
+                detailController.track = thisTrack.first
+                lastVisitPage(tabName: GlobalVariable.favorite, pageName: "\(thisTrack.first?.id)")
+                navigationController?.pushViewController(detailController, animated: true)
+            }
+        }
+    }
+    
+    func lastVisitPage(tabName: String, pageName: String) {
+        let thisPage = LastVisitPageModel()
+        try! self.realm.write {
+            thisPage.tabName = tabName
+            thisPage.id = GlobalVariable.incrementVisitPagePrimaryKey()
+            thisPage.pageName = pageName
+            self.realm.create(LastVisitPageModel.self, value: thisPage, update: .all)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +77,7 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = DetailController()
         detailController.track = (favorites?[indexPath.row])!
+        lastVisitPage(tabName: GlobalVariable.favorite, pageName: "\(favorites![indexPath.row].id)")
         navigationController?.pushViewController(detailController, animated: true)
     }
 

@@ -18,18 +18,36 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     let realm = try! Realm()
     var tracks: Results<TrackModel>?
     var visits: Results<VisitModel>?
+    var lastVisitPage: Results<LastVisitPageModel>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.title = GlobalVariable.search
+        checkLastVisitPage()
         trackTableView.delegate = self
         trackTableView.dataSource = self
         searchBar.delegate = self
         trackTableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: "TrackCell")
         lastVisit()
         loadSearchAPILink()
+    }
+    
+    func checkLastVisitPage() {
+        lastVisitPage = try! Realm().objects(LastVisitPageModel.self)
+        if lastVisitPage?.count ?? 0 > 1 {
+            let thisPage = lastVisitPage![lastVisitPage!.count - 1]
+            if thisPage.tabName == GlobalVariable.search && thisPage.pageName != GlobalVariable.home {
+                let id = (thisPage.pageName as NSString).integerValue
+                let thisTrack = try! Realm().objects(TrackModel.self).filter("id == \(id)")
+                let detailController = DetailController()
+                detailController.track = thisTrack.first
+                lastVisitPage(tabName: GlobalVariable.search, pageName: "\(thisTrack.first?.id)")
+                navigationController?.pushViewController(detailController, animated: true)
+                
+            }
+        }
     }
     
     func lastVisit() {
@@ -76,10 +94,21 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        lastVisitPage(tabName: GlobalVariable.search, pageName: GlobalVariable.home)
         DispatchQueue.main.async {
             self.visits = try! Realm().objects(VisitModel.self)
             self.tracks = try! Realm().objects(TrackModel.self)
             self.trackTableView.reloadData()
+        }
+    }
+    
+    func lastVisitPage(tabName: String, pageName: String) {
+        let thisPage = LastVisitPageModel()
+        try! self.realm.write {
+            thisPage.tabName = tabName
+            thisPage.id = GlobalVariable.incrementVisitPagePrimaryKey()
+            thisPage.pageName = pageName
+            self.realm.create(LastVisitPageModel.self, value: thisPage, update: .all)
         }
     }
     
@@ -100,6 +129,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = DetailController()
         detailController.track = (tracks?[indexPath.row])!
+        lastVisitPage(tabName: GlobalVariable.search, pageName: "\(tracks![indexPath.row].id)")
         navigationController?.pushViewController(detailController, animated: true)
     }
     
@@ -117,7 +147,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 0.0
         if visits?.count ?? 0 > 1 {
             return 30.0
         } else {

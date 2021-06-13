@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="-639" y="1264"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Controller-->
         <scene sceneID="VGh-rd-kct">
             <objects>
-                <tabBarController id="Uqf-nz-Mgg" sceneMemberID="viewController">
+                <tabBarController id="Uqf-nz-Mgg" customClass="CustomTabController" customModule="Itunes_Search" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O7y-Aw-w38">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
