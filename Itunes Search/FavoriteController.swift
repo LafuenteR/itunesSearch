@@ -15,6 +15,7 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = GlobalVariable.favorite
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
         favoriteTableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: "TrackCell")

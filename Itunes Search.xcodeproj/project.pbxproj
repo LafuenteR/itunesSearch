@@ -10,6 +10,7 @@
 		B05385C4C3B1C48A261FBE97 /* Pods_Itunes_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8BBB0035FC453C68510FB1 /* Pods_Itunes_Search.framework */; };
 		BC8FB6CB2675C89A0020991F /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8FB6C92675C89A0020991F /* DetailController.swift */; };
 		BC8FB6CC2675C89A0020991F /* DetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8FB6CA2675C89A0020991F /* DetailController.xib */; };
+		BC8FB6CE26764BC30020991F /* VisitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8FB6CD26764BC30020991F /* VisitModel.swift */; };
 		BCC8133A26748925007106EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8133926748925007106EB /* AppDelegate.swift */; };
 		BCC8133C26748925007106EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8133B26748925007106EB /* SceneDelegate.swift */; };
 		BCC8133E26748925007106EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8133D26748925007106EB /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		6DAB847A870146053FDEFAB5 /* Pods-Itunes Search.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itunes Search.debug.xcconfig"; path = "Target Support Files/Pods-Itunes Search/Pods-Itunes Search.debug.xcconfig"; sourceTree = "<group>"; };
 		BC8FB6C92675C89A0020991F /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		BC8FB6CA2675C89A0020991F /* DetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailController.xib; sourceTree = "<group>"; };
+		BC8FB6CD26764BC30020991F /* VisitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitModel.swift; sourceTree = "<group>"; };
 		BCC8133626748925007106EB /* Itunes Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Itunes Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC8133926748925007106EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC8133B26748925007106EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				BCC8135B26753351007106EB /* TrackCell.swift */,
 				BCC8135C26753351007106EB /* TrackCell.xib */,
 				BCC813592675306C007106EB /* TrackModel.swift */,
+				BC8FB6CD26764BC30020991F /* VisitModel.swift */,
 				BCC8135526751076007106EB /* Network.swift */,
 				BCC81357267510C7007106EB /* GlobalVariable.swift */,
 				BCC81351267505CF007106EB /* SearchCell.swift */,
@@ -252,6 +255,7 @@
 				BCC8135626751076007106EB /* Network.swift in Sources */,
 				BCC81358267510C7007106EB /* GlobalVariable.swift in Sources */,
 				BCC8134E2674926E007106EB /* SearchController.swift in Sources */,
+				BC8FB6CE26764BC30020991F /* VisitModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

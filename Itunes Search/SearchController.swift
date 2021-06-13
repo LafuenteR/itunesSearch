@@ -17,15 +17,31 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     var results = [result]()
     let realm = try! Realm()
     var tracks: Results<TrackModel>?
+    var visits: Results<VisitModel>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.title = GlobalVariable.search
         trackTableView.delegate = self
         trackTableView.dataSource = self
         searchBar.delegate = self
         trackTableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: "TrackCell")
+        lastVisit()
         loadSearchAPILink()
+    }
+    
+    func lastVisit() {
+        let thisVisit = VisitModel()
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "MMM d, yyyy h:mm a"
+        let thisDate = dateformat.string(from: Date())
+        try! self.realm.write {
+            thisVisit.dateVisit = thisDate
+            thisVisit.id = GlobalVariable.incrementVisitPrimaryKey()
+            self.realm.create(VisitModel.self, value: thisVisit, update: .all)
+        }
     }
     
     func loadSearchAPILink() {
@@ -59,6 +75,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
+            self.visits = try! Realm().objects(VisitModel.self)
             self.tracks = try! Realm().objects(TrackModel.self)
             self.trackTableView.reloadData()
         }
@@ -82,6 +99,28 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let detailController = DetailController()
         detailController.track = (tracks?[indexPath.row])!
         navigationController?.pushViewController(detailController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 18))
+        let label = UILabel(frame: CGRect(x: 10, y: 5, width: 300, height: 20))
+        if visits!.count > 1 {
+            label.text = "Last Visited: \(visits![visits!.count - 2].dateVisit)"
+        }
+        label.textColor = .black
+        view.addSubview(label)
+        view.backgroundColor = .systemGray5
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 0.0
+        if visits?.count ?? 0 > 1 {
+            return 30.0
+        } else {
+            return 0.0
+        }
     }
     
     func trackExist(thisTrack: TrackModel) -> Bool {
