@@ -46,27 +46,29 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func loadSearchAPILink() {
         Network.request(URLString: GlobalVariable.searchAPILink) { success, response in
-            let trackArray  = (response as! NSDictionary)["results"] as! [[String:Any]]
-            self.results.removeAll()
-            do {
-                try! self.realm.write {
-                    for track in trackArray {
-                        let thisResult = result(trackName: track["trackName"] as? String ?? track["collectionName"] as? String, artworkUrl30: track["artworkUrl60"] as? String, trackPrice: track["trackPrice"] as? Double ?? track["collectionPrice"] as? Double, primaryGenreName: track["primaryGenreName"] as? String, description: track["longDescription"] as? String)
-                        self.results.append(thisResult)
-                        let thisTrack = TrackModel()
-                        thisTrack.artworkUrl30 = thisResult.artworkUrl30 ?? ""
-                        thisTrack.trackName = thisResult.trackName ?? ""
-                        thisTrack.trackPrice = thisResult.trackPrice ?? 0.00
-                        thisTrack.genre = thisResult.primaryGenreName ?? ""
-                        thisTrack.longDescription =  thisResult.description ?? ""
-                        thisTrack.id = GlobalVariable.incrementTrackPrimaryKey()
-                        if !self.trackExist(thisTrack: thisTrack) {
-                            self.realm.create(TrackModel.self, value: thisTrack, update: .all)
+            if success! {
+                let trackArray  = (response as! NSDictionary)["results"] as! [[String:Any]]
+                self.results.removeAll()
+                do {
+                    try! self.realm.write {
+                        for track in trackArray {
+                            let thisResult = result(trackName: track["trackName"] as? String ?? track["collectionName"] as? String, artworkUrl30: track["artworkUrl60"] as? String, trackPrice: track["trackPrice"] as? Double ?? track["collectionPrice"] as? Double, primaryGenreName: track["primaryGenreName"] as? String, description: track["longDescription"] as? String)
+                            self.results.append(thisResult)
+                            let thisTrack = TrackModel()
+                            thisTrack.artworkUrl30 = thisResult.artworkUrl30 ?? ""
+                            thisTrack.trackName = thisResult.trackName ?? ""
+                            thisTrack.trackPrice = thisResult.trackPrice ?? 0.00
+                            thisTrack.genre = thisResult.primaryGenreName ?? ""
+                            thisTrack.longDescription =  thisResult.description ?? ""
+                            thisTrack.id = GlobalVariable.incrementTrackPrimaryKey()
+                            if !self.trackExist(thisTrack: thisTrack) {
+                                self.realm.create(TrackModel.self, value: thisTrack, update: .all)
+                            }
                         }
                     }
-                }
-            } catch {}
-            print(self.realm.configuration.fileURL ?? "")
+                } catch {}
+                print(self.realm.configuration.fileURL ?? "")
+            }
             
         } failed: { failed, response in
             print("failed",response as Any)
