@@ -29,7 +29,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         trackTableView.dataSource = self
         searchBar.delegate = self
         trackTableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: "TrackCell")
-        lastVisit()
         loadSearchAPILink()
     }
     
@@ -49,20 +48,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
         }
     }
-    
-    // Checking the last time you visit you open the app.
-    func lastVisit() {
-        let thisVisit = VisitModel()
-        let dateformat = DateFormatter()
-        dateformat.dateFormat = "MMM d, yyyy h:mm a"
-        let thisDate = dateformat.string(from: Date())
-        try! self.realm.write {
-            thisVisit.dateVisit = thisDate
-            thisVisit.id = GlobalVariable.incrementVisitPrimaryKey()
-            self.realm.create(VisitModel.self, value: thisVisit, update: .all)
-        }
-    }
-    
     
     // Loading the iTunes API
     func loadSearchAPILink() {

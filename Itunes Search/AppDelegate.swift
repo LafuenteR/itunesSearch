@@ -16,20 +16,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let config = Realm.Configuration(
-
+        let config = Realm.Configuration (
+            
             schemaVersion: 1,
-
+            
             migrationBlock: { migration, oldSchemaVersion in
-
+                
                 if (oldSchemaVersion < 1) {
-
+                    
                 }
             })
         
         Realm.Configuration.defaultConfiguration = config
         
+        lastVisit()
+        
         return true
+    }
+    
+    func lastVisit() {
+        let realm = try! Realm()
+        let thisVisit = VisitModel()
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "MMM d, yyyy h:mm a"
+        let thisDate = dateformat.string(from: Date())
+        try! realm.write {
+            thisVisit.dateVisit = thisDate
+            thisVisit.id = GlobalVariable.incrementVisitPrimaryKey()
+            realm.create(VisitModel.self, value: thisVisit, update: .all)
+        }
     }
 
     // MARK: UISceneSession Lifecycle
