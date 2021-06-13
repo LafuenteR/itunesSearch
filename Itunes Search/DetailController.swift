@@ -6,13 +6,22 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailController: UIViewController {
 
+    @IBOutlet weak var descriptionTextView: UITextView!
+    var track: TrackModel?
+    @IBOutlet weak var trackImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        descriptionTextView.text = track?.longDescription
+        let imageURL = URL(string: track?.artworkUrl30 ?? "" )
+        trackImage.contentMode = .scaleAspectFill
+        trackImage.kf.setImage(with: imageURL)
         // Do any additional setup after loading the view.
+        
     }
 
 

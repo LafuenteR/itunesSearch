@@ -32,7 +32,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             do {
                 try! self.realm.write {
                     for track in trackArray {
-                        let thisResult = result(trackName: track["trackName"] as? String ?? track["collectionName"] as? String, artworkUrl30: track["artworkUrl60"] as? String, trackPrice: track["trackPrice"] as? Double, primaryGenreName: track["primaryGenreName"] as? String, description: track["longDescription"] as? String)
+                        let thisResult = result(trackName: track["trackName"] as? String ?? track["collectionName"] as? String, artworkUrl30: track["artworkUrl60"] as? String, trackPrice: track["trackPrice"] as? Double ?? track["collectionPrice"] as? Double, primaryGenreName: track["primaryGenreName"] as? String, description: track["longDescription"] as? String)
                         self.results.append(thisResult)
                         let thisTrack = TrackModel()
                         thisTrack.artworkUrl30 = thisResult.artworkUrl30 ?? ""
@@ -69,12 +69,13 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 35
+        return 55
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = DetailController()
         detailController.title = tracks?[indexPath.row].trackName
+        detailController.track = (tracks?[indexPath.row])!
         navigationController?.pushViewController(detailController, animated: true)
     }
     

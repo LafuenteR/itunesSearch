@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailController" customModule="Itunes_Search" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionTextView" destination="jn7-K1-Tyh" id="3fI-Nx-d9k"/>
+                <outlet property="trackImage" destination="a8F-Yy-aHT" id="4Ag-fA-sPd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,12 +19,42 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jn7-K1-Tyh">
+                    <rect key="frame" x="10" y="672" width="394" height="200"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="Q28-t4-NsU"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a8F-Yy-aHT">
+                    <rect key="frame" x="182" y="144" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="A5T-zq-Lcp"/>
+                        <constraint firstAttribute="width" constant="50" id="ffw-v9-60F"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="jn7-K1-Tyh" secondAttribute="trailing" constant="10" id="Gj1-06-zex"/>
+                <constraint firstItem="jn7-K1-Tyh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Nff-b6-b4h"/>
+                <constraint firstItem="a8F-Yy-aHT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="Zvm-M1-5yR"/>
+                <constraint firstItem="a8F-Yy-aHT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nJv-dv-rab"/>
+                <constraint firstItem="jn7-K1-Tyh" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="10" id="tT0-dk-epg"/>
+            </constraints>
             <point key="canvasLocation" x="28" y="88"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

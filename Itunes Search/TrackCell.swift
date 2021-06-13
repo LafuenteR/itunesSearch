@@ -11,6 +11,7 @@ class TrackCell: UITableViewCell {
 
     @IBOutlet weak var artworkUrl30: UIImageView!
     @IBOutlet weak var trackNameLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
     override func awakeFromNib() {
@@ -25,7 +26,8 @@ class TrackCell: UITableViewCell {
     }
     
     func update(track: TrackModel) {
-        trackNameLabel.text = track.trackName 
+        trackNameLabel.text = track.trackName
+        genreLabel.text = track.genre
         priceLabel.text = "$ \(track.trackPrice )"
         let url = URL(string: track.artworkUrl30 )
         artworkUrl30.contentMode = .scaleAspectFill

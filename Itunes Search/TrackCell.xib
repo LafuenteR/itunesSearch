@@ -9,54 +9,74 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="KGk-i7-Jjw" customClass="TrackCell" customModule="Itunes_Search" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="467" height="35"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="KGk-i7-Jjw" customClass="TrackCell" customModule="Itunes_Search" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="474" height="55"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="467" height="35"/>
+                <rect key="frame" x="0.0" y="0.0" width="474" height="55"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g04-QB-1t8">
-                        <rect key="frame" x="10" y="2.5" width="30" height="30"/>
+                        <rect key="frame" x="10" y="2.5" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="0Tv-yC-aCT"/>
-                            <constraint firstAttribute="width" constant="30" id="IVk-uC-zrn"/>
-                            <constraint firstAttribute="height" constant="30" id="Vnr-wy-l8i"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="dnD-CV-wQe"/>
+                            <constraint firstAttribute="width" constant="50" id="Rh8-9O-iIE"/>
+                            <constraint firstAttribute="height" constant="50" id="yeB-Oh-ypb"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh7-t0-89s">
-                        <rect key="frame" x="50" y="2.5" width="84" height="18"/>
+                        <rect key="frame" x="70" y="2.5" width="362" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hms-nL-I9d">
+                        <rect key="frame" x="442" y="16.5" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="6Ia-up-pDU"/>
+                            <constraint firstAttribute="height" constant="22" id="iMB-5V-U05"/>
+                        </constraints>
+                        <state key="normal" image="star" catalog="system"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pg-dc-wmj">
+                        <rect key="frame" x="70" y="20.5" width="35" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqA-sB-7Vy">
-                        <rect key="frame" x="50" y="20.5" width="29" height="15"/>
+                        <rect key="frame" x="70" y="35" width="29" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="dh7-t0-89s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2.5" id="BTp-wm-Qbv"/>
-                    <constraint firstItem="GqA-sB-7Vy" firstAttribute="top" secondItem="dh7-t0-89s" secondAttribute="bottom" id="GJH-C7-KKi"/>
-                    <constraint firstItem="GqA-sB-7Vy" firstAttribute="leading" secondItem="g04-QB-1t8" secondAttribute="trailing" constant="10" id="MHW-qc-hzV"/>
-                    <constraint firstItem="dh7-t0-89s" firstAttribute="leading" secondItem="g04-QB-1t8" secondAttribute="trailing" constant="10" id="c4P-64-Epr"/>
-                    <constraint firstAttribute="bottom" secondItem="g04-QB-1t8" secondAttribute="bottom" constant="2.5" id="fdi-JF-Gky"/>
-                    <constraint firstItem="g04-QB-1t8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gDj-Hr-Gf1"/>
-                    <constraint firstItem="GqA-sB-7Vy" firstAttribute="top" secondItem="dh7-t0-89s" secondAttribute="bottom" id="uPL-VH-T2V"/>
-                    <constraint firstItem="g04-QB-1t8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2.5" id="wqE-LV-dKf"/>
-                    <constraint firstItem="dh7-t0-89s" firstAttribute="leading" secondItem="g04-QB-1t8" secondAttribute="trailing" constant="10" id="zVe-Zi-996"/>
+                    <constraint firstItem="4Pg-dc-wmj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="84B-A1-56h"/>
+                    <constraint firstItem="dh7-t0-89s" firstAttribute="leading" secondItem="g04-QB-1t8" secondAttribute="trailing" constant="10" id="ECY-eY-LGQ"/>
+                    <constraint firstItem="GqA-sB-7Vy" firstAttribute="top" secondItem="4Pg-dc-wmj" secondAttribute="bottom" id="FXH-sS-z8J"/>
+                    <constraint firstItem="dh7-t0-89s" firstAttribute="leading" secondItem="g04-QB-1t8" secondAttribute="trailing" constant="10" id="KUP-t8-9yn"/>
+                    <constraint firstItem="g04-QB-1t8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2.5" id="NTx-WP-cue"/>
+                    <constraint firstAttribute="bottom" secondItem="g04-QB-1t8" secondAttribute="bottom" constant="2.5" id="Os1-jZ-SjF"/>
+                    <constraint firstItem="Hms-nL-I9d" firstAttribute="leading" secondItem="dh7-t0-89s" secondAttribute="trailing" constant="10" id="XbI-LF-4xa"/>
+                    <constraint firstItem="Hms-nL-I9d" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c5b-WX-FZF"/>
+                    <constraint firstItem="dh7-t0-89s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2.5" id="gdv-fa-PhQ"/>
+                    <constraint firstItem="g04-QB-1t8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="iQN-pK-ZTy"/>
+                    <constraint firstItem="GqA-sB-7Vy" firstAttribute="leading" secondItem="g04-QB-1t8" secondAttribute="trailing" constant="10" id="kGo-4d-GLJ"/>
+                    <constraint firstItem="4Pg-dc-wmj" firstAttribute="leading" secondItem="g04-QB-1t8" secondAttribute="trailing" constant="10" id="kln-oT-kr3"/>
+                    <constraint firstAttribute="trailing" secondItem="Hms-nL-I9d" secondAttribute="trailing" constant="10" id="w6H-hc-mmY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="artworkUrl30" destination="g04-QB-1t8" id="g9k-cM-YlJ"/>
+                <outlet property="genreLabel" destination="4Pg-dc-wmj" id="mkU-qq-sMe"/>
                 <outlet property="priceLabel" destination="GqA-sB-7Vy" id="Jhr-Q5-b4z"/>
                 <outlet property="trackNameLabel" destination="dh7-t0-89s" id="d4c-rO-0rI"/>
             </connections>
-            <point key="canvasLocation" x="189.13043478260872" y="12.388392857142856"/>
+            <point key="canvasLocation" x="194.20289855072465" y="18.415178571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
 </document>
