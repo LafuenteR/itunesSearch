@@ -14,6 +14,7 @@ class TrackModel: Object {
     @objc dynamic var artworkUrl30 = ""
     @objc dynamic var trackPrice = 0.00
     @objc dynamic var genre = ""
+    @objc dynamic var longDescription = ""
     @objc dynamic var isFavorite = false
     
     override class func primaryKey() -> String? {
