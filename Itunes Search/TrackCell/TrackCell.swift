@@ -47,6 +47,7 @@ class TrackCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // Updating the cell
     func update(track: TrackModel) {
         trackNameLabel.text = track.trackName
         faveButtonUI.tag = track.id

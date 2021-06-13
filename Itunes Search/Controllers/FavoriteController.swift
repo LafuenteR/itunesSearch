@@ -30,6 +30,7 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
         self.favoriteTableView.reloadData()
     }
     
+    // Checking the Last Visit Page before closing the app.
     func checkLastVisitPage() {
         lastVisitPage = try! Realm().objects(LastVisitPageModel.self)
         if lastVisitPage?.count ?? 0 > 1 {
@@ -45,6 +46,7 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    // Function use for saving the current page to LastVisitPageModel
     func lastVisitPage(tabName: String, pageName: String) {
         let thisPage = LastVisitPageModel()
         try! self.realm.write {
@@ -66,6 +68,7 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    // Reload the Favorites TableView
     @objc func reloadFavorites() {
         self.favoriteTableView.reloadData()
     }

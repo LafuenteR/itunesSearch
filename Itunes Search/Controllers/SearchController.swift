@@ -22,7 +22,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         self.title = GlobalVariable.search
         checkLastVisitPage()
@@ -34,6 +33,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         loadSearchAPILink()
     }
     
+    // Checking the Last Visit Page before closing the app.
     func checkLastVisitPage() {
         lastVisitPage = try! Realm().objects(LastVisitPageModel.self)
         if lastVisitPage?.count ?? 0 > 1 {
@@ -50,6 +50,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    // Checking the last time you visit you open the app.
     func lastVisit() {
         let thisVisit = VisitModel()
         let dateformat = DateFormatter()
@@ -62,6 +63,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    
+    // Loading the iTunes API
     func loadSearchAPILink() {
         Network.request(URLString: GlobalVariable.searchAPILink) { success, response in
             if success! {
@@ -102,6 +105,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    
+    // Function use for saving the current page to LastVisitPageModel
     func lastVisitPage(tabName: String, pageName: String) {
         let thisPage = LastVisitPageModel()
         try! self.realm.write {
@@ -154,6 +159,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    // Check if the track already exist.
     func trackExist(thisTrack: TrackModel) -> Bool {
         let checkTrack = try! Realm().objects(TrackModel.self).filter("artworkUrl30 == '\(thisTrack.artworkUrl30)'")
         if checkTrack.count > 0 {
