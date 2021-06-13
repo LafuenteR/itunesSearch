@@ -9,9 +9,11 @@ import UIKit
 import Alamofire
 import RealmSwift
 
-class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var trackTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var results = [result]()
     let realm = try! Realm()
     var tracks: Results<TrackModel>?
@@ -21,6 +23,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Do any additional setup after loading the view.
         trackTableView.delegate = self
         trackTableView.dataSource = self
+        searchBar.delegate = self
         trackTableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: "TrackCell")
         loadSearchAPILink()
     }
@@ -77,7 +80,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = DetailController()
-        detailController.title = tracks?[indexPath.row].trackName
         detailController.track = (tracks?[indexPath.row])!
         navigationController?.pushViewController(detailController, animated: true)
     }
@@ -88,6 +90,19 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             return true
         } else {
             return false
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        DispatchQueue.main.async {
+            if searchText.count > 0 {
+                let query = NSPredicate(format:"trackName CONTAINS %@", searchText)
+                self.tracks = try! Realm().objects(TrackModel.self).filter(query)
+                self.trackTableView.reloadData()
+            } else {
+                self.tracks = try! Realm().objects(TrackModel.self)
+                self.trackTableView.reloadData()
+            }
         }
     }
 

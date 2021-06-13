@@ -43,5 +43,11 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailController = DetailController()
+        detailController.track = (favorites?[indexPath.row])!
+        navigationController?.pushViewController(detailController, animated: true)
+    }
 
 }

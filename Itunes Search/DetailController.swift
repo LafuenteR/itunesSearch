@@ -13,13 +13,19 @@ class DetailController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     var track: TrackModel?
     @IBOutlet weak var trackImage: UIImageView!
+    @IBOutlet weak var trackNameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionTextView.text = track?.longDescription
+        descriptionTextView.text = track?.longDescription != "" ? track?.longDescription : "No Description."
         let imageURL = URL(string: track?.artworkUrl30 ?? "" )
         trackImage.contentMode = .scaleAspectFill
         trackImage.kf.setImage(with: imageURL)
+        trackNameLabel.text = track?.trackName
+        genreLabel.text = track?.genre
+        priceLabel.text = "$ \(track!.trackPrice)"
         // Do any additional setup after loading the view.
         
     }

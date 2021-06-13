@@ -88,7 +88,7 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3HS-EZ-Lhx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3HS-EZ-Lhx">
                                 <rect key="frame" x="0.0" y="132" width="414" height="681"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -107,6 +107,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cl7-AV-lTO"/>
                     <connections>
+                        <outlet property="searchBar" destination="Rdw-2n-P2o" id="h9A-3N-0Mh"/>
                         <outlet property="trackTableView" destination="3HS-EZ-Lhx" id="dVg-t3-ng3"/>
                     </connections>
                 </viewController>
