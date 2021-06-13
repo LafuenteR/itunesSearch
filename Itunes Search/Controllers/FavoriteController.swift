@@ -22,6 +22,7 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
         favoriteTableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: "TrackCell")
+        favoriteTableView.separatorStyle = .none
     }
     
     override func viewWillAppear(_ animated: Bool) {

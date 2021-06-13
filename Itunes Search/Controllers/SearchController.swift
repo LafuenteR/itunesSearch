@@ -29,6 +29,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         trackTableView.dataSource = self
         searchBar.delegate = self
         trackTableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: "TrackCell")
+        trackTableView.separatorStyle = .none
         loadSearchAPILink()
     }
     
