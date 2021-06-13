@@ -36,6 +36,9 @@
                             <constraint firstAttribute="height" constant="22" id="iMB-5V-U05"/>
                         </constraints>
                         <state key="normal" image="star" catalog="system"/>
+                        <connections>
+                            <action selector="updateFaveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="acH-aW-grJ"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pg-dc-wmj">
                         <rect key="frame" x="70" y="20.5" width="35" height="14.5"/>
@@ -69,6 +72,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="artworkUrl30" destination="g04-QB-1t8" id="g9k-cM-YlJ"/>
+                <outlet property="faveButtonUI" destination="Hms-nL-I9d" id="iAF-oF-o60"/>
                 <outlet property="genreLabel" destination="4Pg-dc-wmj" id="mkU-qq-sMe"/>
                 <outlet property="priceLabel" destination="GqA-sB-7Vy" id="Jhr-Q5-b4z"/>
                 <outlet property="trackNameLabel" destination="dh7-t0-89s" id="d4c-rO-0rI"/>

@@ -34,5 +34,9 @@ class FavoriteController: UIViewController, UITableViewDelegate, UITableViewData
         cell.update(track: favorites![indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
 
 }

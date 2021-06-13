@@ -14,6 +14,7 @@ class Network: NSObject {
     
     static func request(URLString: String, successed: @escaping complete, failed: @escaping complete) {
         AF.request(URLString).responseJSON { response in
+            print(response.value)
             switch response.result {
             case .success(_):
                 successed(true, response.value)
