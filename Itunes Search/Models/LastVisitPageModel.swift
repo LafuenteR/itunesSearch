@@ -9,9 +9,9 @@ import Foundation
 import RealmSwift
 
 class LastVisitPageModel: Object {
-    @objc dynamic var id = 0
-    @objc dynamic var tabName = ""
-    @objc dynamic var pageName = ""
+    @objc dynamic var id = Int()
+    @objc dynamic var tabName = String()
+    @objc dynamic var pageName = String()
     
     override class func primaryKey() -> String? {
         return "id"

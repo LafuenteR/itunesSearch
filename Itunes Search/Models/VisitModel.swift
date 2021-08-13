@@ -9,8 +9,8 @@ import Foundation
 import RealmSwift
 
 class VisitModel: Object {
-    @objc dynamic var id = 0
-    @objc dynamic var dateVisit = ""
+    @objc dynamic var id = Int()
+    @objc dynamic var dateVisit = String()
     
     override class func primaryKey() -> String? {
         return "id"

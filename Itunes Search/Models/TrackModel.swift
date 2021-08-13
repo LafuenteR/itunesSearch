@@ -9,12 +9,12 @@ import Foundation
 import RealmSwift
 
 class TrackModel: Object {
-    @objc dynamic var id = 0
-    @objc dynamic var trackName = ""
-    @objc dynamic var artworkUrl30 = ""
+    @objc dynamic var id = Int()
+    @objc dynamic var trackName = String()
+    @objc dynamic var artworkUrl30 = String()
     @objc dynamic var trackPrice = 0.00
-    @objc dynamic var genre = ""
-    @objc dynamic var longDescription = ""
+    @objc dynamic var genre = String()
+    @objc dynamic var longDescription = String()
     @objc dynamic var isFavorite = false
     
     override class func primaryKey() -> String? {
